@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """Tuneup assignment"""
 
-__author__ = "demo video with Daniel & Piero"
+__author__ = "demo video with Piero"
 
 import timeit
 import cProfile
@@ -11,7 +11,9 @@ import functools
 
 
 def profile(func):
-    """A function that can be used as a decorator to measure performance"""
+    """
+    A function that can be used as a decorator to measure performance
+    """
     # You need to understand how decorators are constructed and used.
     # Be sure to review the lesson material on decorators, they are used
     # extensively in Django and Flask.
@@ -50,7 +52,9 @@ def is_duplicate(title, movies):
 
 @profile
 def find_duplicate_movies(src):
-    """Returns a list of duplicate movies from a src list"""
+    """
+    Returns a list of duplicate movies from a src list
+    """
     movies = read_movies(src)
     duplicates = []
     while movies:
@@ -62,7 +66,9 @@ def find_duplicate_movies(src):
 
 @profile
 def find_duplicate_movies_improved(src):
-    """Improved for faster detectin of duplicates"""
+    """
+    Improved for faster detectin of duplicates
+    """
     # movies = [movie.lower() for movie in read_movies(src)]
     moves = read_movies(src)
     # Do any sorting outside of the loop
@@ -74,22 +80,27 @@ def find_duplicate_movies_improved(src):
 
 
 def timeit_helper():
-    """Part A:  Obtain some profiling measurements using timeit"""
+    """
+    Part A:  Obtain some profiling measurements using timeit
+    """
     t = timeit.Timer(
         stmt="find_duplicate_movies('movies.txt')",
         setup='from __main__ import find_duplicate_movies'
-        )
+    )
     runs_per_repeat = 5
     num_repeats = 7
     result = t.repeat(repeat=num_reports, number=runs_per_repeat)
     best_time = min(result) / float(runs_per_repeat)
-    print("Best time accors {} repeats of {} run per repeat: {} sec".format("num_repeats")
+    print("Best time across {} repeats of {} run per repeat: {} sec".format(num_repeats)
+          )
 
 
 def main():
-    """Computes a list of duplicate movie entries"""
+    """
+    Computes a list of duplicate movie entries
+    """
     # This is a function to use for part B.
-    result=find_duplicate_movies('movies.txt')
+    result = find_duplicate_movies('movies.txt')
     print('Found {} duplicate movies:'.format(len(result)))
     print('\n'.join(result))
 
