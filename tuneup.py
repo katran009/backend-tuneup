@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """Tuneup assignment"""
 
-__author__ = "demo video with Piero"
+__author__ = "demo video with Daniel & Piero"
 
 import timeit
 import cProfile
